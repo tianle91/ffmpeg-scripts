@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  ffmpeg:
+    build:
+      context: .
+    container_name: ffmpeg
+    volumes:
+      - /volume1/media/needs_edit/rot_90:/input
+      - /volume1/media/needs_edit/rot_90_done:/output
+    entrypoint: ["bash", "/home/run_batch.sh"]
