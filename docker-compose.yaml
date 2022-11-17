@@ -1,10 +1,10 @@
 version: '3.3'
 services:
-  ffmpeg:
+  rot_90:
     build:
       context: .
-    container_name: ffmpeg
+    container_name: rot_90
     volumes:
       - ./rot_90:/input
       - ./rot_90_done:/output
-    entrypoint: ["bash", "/home/run_batch.sh"]
+    entrypoint: ["bash", "/home/rot_90.sh"]

@@ -1,2 +1,2 @@
 FROM linuxserver/ffmpeg
-COPY run_batch.sh /home/
+COPY rot_90.sh /home/
