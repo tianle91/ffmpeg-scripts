@@ -1,2 +1,2 @@
 FROM linuxserver/ffmpeg
-COPY rot_90.sh /home/
+RUN apt update -y && apt install -y python3

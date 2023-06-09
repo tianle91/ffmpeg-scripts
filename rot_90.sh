@@ -1,1 +1,0 @@
-for path in /input/*; do fname=$(basename "$path"); ffmpeg -i "$path" -vf "transpose=1" "/output/$fname"; done;
