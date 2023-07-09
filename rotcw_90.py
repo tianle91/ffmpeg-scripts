@@ -5,6 +5,6 @@ import os
 
 l = glob('*')
 for p in l:
-    output_path = Path(p).stem + ' (rot_90)' + Path(p).suffix
+    output_path = Path(p).stem + ' (rotcw_90)' + Path(p).suffix
     print(f'Rotating 90: {p} -> {output_path}')
     os.system(f'ffmpeg -i {p} -vf "transpose=1" {output_path}')
