@@ -3,7 +3,7 @@ from glob import glob
 from pathlib import Path
 import os
 
-l = glob('*.mp4')
+l = sorted(list(glob('*.mp4')))
 prefixes = sorted(list({Path(s).stem[:-1] for s in l}))
 assert len(prefixes) == 1, 'Need the same prefixes:\n' + '\n'.join(prefixes)
 with open('l.txt', 'w') as f:
