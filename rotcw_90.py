@@ -13,4 +13,3 @@ for p in l:
     if p_suffix not in excluded_extensions:
         output_path = os.path.join('output', Path(p).stem + f' {suffix}' + p_suffix)
         os.system(f'ffmpeg -hwaccel cuda -i "{p}" -vf "{vf_argument}" "{output_path}"')
-
