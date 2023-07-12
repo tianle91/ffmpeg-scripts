@@ -2,12 +2,15 @@ from glob import glob
 from pathlib import Path
 import os
 
+vf_argument = 'transpose=1'
+suffix = '(rotcw_90)'
 excluded_extensions = ['.py',]
+os.makedirs('output', exist_ok=True)
+
 l = glob('*')
 for p in l:
-    if Path(p).suffix in excluded_extensions:
-        continue
-    else:
-        output_path = Path(p).stem + '_(rotcw_90)' + Path(p).suffix
-        print(f'Rotating clockwise 90: {p} -> {output_path}')
-        os.system(f'ffmpeg -i "{p}" -vf "transpose=1" "{output_path}"')
+    p_suffix = Path(p).suffix
+    if p_suffix not in excluded_extensions:
+        output_path = os.path.join('output', Path(p).stem + f' {suffix}' + p_suffix)
+        os.system(f'ffmpeg -hwaccel cuda -i "{p}" -vf "{vf_argument}" "{output_path}"')
+
